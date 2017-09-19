@@ -22,7 +22,7 @@
                                 templateUrl: 'layout/header.html'
                             },
                             'content': {
-                                templateUrl: 'layout/content.html'
+                                templateUrl: 'layout/header.html'
                             }
                         },
                         data: {

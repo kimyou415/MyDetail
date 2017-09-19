@@ -1,0 +1,1 @@
+angular.module("mydetail.common.config",[]).constant("BASE_URL","http://10.66.72.141:8010").constant("HOME","http://localhost:4040/").constant("API_KEY","ATPCv3Dev").constant("PROJECT_NAME",["Test"]);

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html data-ng-app="mydetail" lang="en-US">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/mydetail.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+        <!-- This helps the ng-show/ng-hide animations start at the right place. -->
+        <!-- Since Angular has this but needs to load, this gives us the class early. -->
+
+        .ng-hide {
+            display: none!important;
+        }
+
+        .navbar, .dropdown-menu{
+
+        height: 4.15em;
+        background: linear-gradient(66deg, #0077be, #800000);
+        padding: 2px 0px 0px 0px;
+
+        }
+
+        .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+          border-bottom: 3px solid transparent;
+        }
+        .nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+          border-bottom: 3px solid transparent;
+          background: none;
+        }
+        .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+         color: #fff;
+        }
+        .dropdown-menu{
+              -webkit-box-shadow: none;
+            box-shadow:none;
+        }
+
+        .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+          border-bottom: #669AE1 3px solid;
+        }
+        .nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+          border-bottom: #F7FDCA 3px solid;
+        }
+        .nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+          border-bottom: #F0776C 3px solid;
+        }
+        .nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+          border-bottom: #FECF71 3px solid;
+        }
+        .nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+          border-bottom: #DB9DBE 3px solid;
+        }
+        .nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+          border-bottom: #C49CDE 3px solid;
+        }
+        .nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+          border-bottom: #669AE1 3px solid;
+        }
+        .nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+          border-bottom: #62C2E4 3px solid;
+        }
+
+        .navbar-toggle .icon-bar{
+            color: #fff;
+            background: #fff;
+        }
+
+        body li a{
+                color: black;
+            }
+
+            body {
+
+            margin:0;
+            background-color: #f5f5f5;
+
+            }
+
+
+
+            footer {
+                text-align: center;
+                font-size: 1em;
+                background-color: #800000;
+                padding: 3%;
+                margin: 0;
+            }
+            footer p{
+                color: #fff;
+            }
+
+            @media screen and (max-width: 700px) {
+                .topnav a:not(:first-child) {display: none;}
+                .topnav a.icon {
+                    float: right;
+                    display: block;
+                }
+            }
+            @media screen and (max-width: 700px) {
+                .topnav.responsive {position: relative;}
+                .topnav.responsive .icon {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+                .topnav.responsive a {
+                    float: none;
+                    display: block;
+                    text-align: left;
+                }
+
+    </style>
+
+</head>
+
+
+<body ng-app="mydetail" style="margin: 0% 12% 0% 12%">
+
+<nav ui-view="header"></nav>
+
+<nav ui-view="content" class="container-fluid" ng-class="$state.current.data.contentClasses"></nav>
+
+
+<!-- navigation -->
+
+
+    <nav class="navbar navbar-fixed-top navbar-light bg-faded" style="margin: 0% 12% 0% 12%">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MY<span class="text-muted">DETAILER</span></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html"></span> Home </a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rate & Services <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Make Appointment</a>
+                                </li>
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="active"><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">My Profile</a></li>
+                                <li><a href="#">Change Password</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<hr class="featurette-divider">
+
+<div class="container-fluid marketing" style="background-color: #fff">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <h2>OUR MISSION </h2>
+            <p>Founded on values of superior customer service, convenience, professionalism and knowledge, we maintain the highest standards for ourselves, our customers, our corporate partners and the work that we do.  We continuously strive to improve ourselves technically, practically and academically so that we are able to provide the best car care services with the highest quality in the industry.  As a result, we are one of the leaders in the auto detail and paint restorations industry.  With a history of success and a safety record that's unmatched, we've detailed and restored more cars than most companies in the industry.</p>
+            <p>Basically, we simplify the solution for your car care needs.  Our company is structured to provide quality, inexpensive, hassle-free car care services conveniently at your facility. </p>
+            <p>Our teams are 100% self-contained, and are fully equipped to accommodate your needs.  In other words, we have our own electricity and water - good news for the facility personnel.</p>
+            <img src="images/equipment.jpeg" style="width:100%;height:100%" class="img-responsive">
+
+        </div>
+
+        <div class="col-md-4">
+
+            <h2>HOW OUR SERVICE WORK?</h2>
+            <h2><span class="text-muted">HASSLE-FREE CAR CARE SERVICES CONVENIENTLY</span></h2>
+            <img src="images/handshake.jpeg" background="white" style="width:100%;height:100%" class="img-responsive">
+            <p></p>
+            <p>When your reservation is made, at the reserved time, bring your car to the designated spot on each company where MyDetailer.com will be located. When the car service is complete, MyDetailer.com will contact you to let you know your car is ready. If there is a specific time that you would like the service done or to pick up the car after the service is complete, you can indicate that in the Comments field on the online reservation. Employees usually drop off before they arrive and pick up after they’re gone.  If employee arrives at work before time that MyDetailer.com arrives , the employee needs to leave the keys at the front desk for MyDetailer.com to pick up. Please make sure to notify MyDetailer.com your specific vehicle information with a License number.</p>
+            <p>If they pay in advance we can drop off the key at the front desk and they can pick up their car later. </p>
+            <p>While reservations are recommended, you can drop-in and request a service. However, depending on the amount of reservations, it may not be possible to squeeze you in. </p>
+            <p>You may choose to pay at drop off or pick up. MyDetailer.com accepts cash and check on-site or credit cards. (Visa and Master card) </p>
+            <p>Please have check payable to <span class="text-muted">SOPHEAR KIM </span> Thank you.</p>
+        </div>
+
+        <div class="col-md-4">
+
+            <h2>WHY CHOOSE US</h2>
+            <p>All of our services are perform by hand, we utilized little to no water for our service. We used only about 1 to 2 gallons of clear water depend on the condition of the vehicle. By the time we are done with the vehicle, the water that drip on to the ground are minimal in amount and will be evaporated. There will be no running water on the facility, we have never encounter any complaint from our clients in this field. All the chemical that we use is an environmental friendly product from Auto Magic and 3D Production. We apply the chemical on a towel or a sponge before apply it to the body of the vehicle. There will not be any chemical dispose onto the ground. We take extreme caution toward waste management and disposal, so you can be at ease that we will always leave your facility in the same condition we found it..</p>
+            <p><a class="btn btn-primary" href="app.html" target="_blank">Make Appointment »</a></p>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-12">
+
+            <h2>PRODUCT <span class="text-muted">INFORMATION</span></h2>
+        <p>3D PRODUCTS IS ONE OF HIGHEST QUALITY CAR CARE PRODUCTS THAT WE USED. THE PRODUCTS ARE KNOWN IN THE PROFESSIONAL CAR WASH AND AUTO DETAILING INDUSTRY AS THE PREMIUM LEADER OF RECONDITIONING PRODUCTS:</p>
+        </div>
+
+    </div><!-- /.row -->
+</div>
+
+<hr class="featurette-divider">
+<footer class="navbar container-fluid text-center">
+    <p>Copyright &copy Mydetailer, 2017. All Rights Reserved.</p>
+</footer>
+
+
+
+</body>
+</html>
